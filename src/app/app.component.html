@@ -3,15 +3,16 @@
 </div>
 
 <div class="input-container">
-  <mat-form-field appearance="fill">
-    <input matInput placeholder="Image Name" [(ngModel)]="imageName">
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <input matInput placeholder="Image Tag" [(ngModel)]="imageTag">
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" (click)="submitForm()">Submit</button>
+  <div class="input-fields">
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="Image Name" [(ngModel)]="imageName">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="Image Tag" [(ngModel)]="imageTag">
+    </mat-form-field>  
+  </div>  
+<button mat-raised-button color="primary" (click)="submitForm()" class="submit-button">Submit</button>
 </div>
 
 <div class="image-container">

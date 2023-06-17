@@ -29,7 +29,8 @@
   }
 
   .severity-buttons button {
-    margin-right: 10px; /* Adjust the value to set the desired gap */
+    margin: 5px; /* Adjust the value to set the desired gap */
+    flex-basis: 50%; /* Set the width to 50% to fit two buttons per row */
   }
 
   .table-container {
