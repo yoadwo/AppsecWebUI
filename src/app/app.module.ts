@@ -14,6 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ResultsTableComponentComponent } from './components/results-table-component/results-table-component.component';
+import { DependenciesResultsTableComponentComponent } from './components/dependencies-results-table-component/dependencies-results-table-component.component';
 import { ContainersFormComponent } from './components/containers-form/containers-form.component';
 import { DependenciesFormComponent } from './components/dependencies-form/dependencies-form.component';
 
@@ -21,6 +22,7 @@ import { DependenciesFormComponent } from './components/dependencies-form/depend
   declarations: [
     AppComponent,
     ResultsTableComponentComponent,
+    DependenciesResultsTableComponentComponent,
     ContainersFormComponent,
     DependenciesFormComponent
   ],

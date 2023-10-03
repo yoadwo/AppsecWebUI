@@ -10,12 +10,14 @@ import { DockerHubQueryResult, Result } from 'src/app/models/dockerhub';
   styleUrls: ['./containers-form.component.css']
 })
 export class ContainersFormComponent implements OnInit, OnDestroy {
+  @Input() events?: Observable<string>;
+  
   imageName: string;
   imageTag: string;
   imageInfo?: DockerHubQueryResult
   imageInfoResults?: Result[];
   eventsSubscription?: Subscription;
-  @Input() events?: Observable<string>;
+  
 
   constructor(private http: HttpClient) {
     this.imageName = '';
