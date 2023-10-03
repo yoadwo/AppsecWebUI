@@ -16,6 +16,5 @@
 </mat-form-field>
 
 <div *ngIf="dependenciesResults">
-    <h2 id="report-header">CVE Report:</h2>
     <app-dependencies-results-table-component [results]="dependenciesResults.vulns"></app-dependencies-results-table-component>
 </div>
