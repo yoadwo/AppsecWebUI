@@ -2,24 +2,28 @@
   <h1 class="header-text">50 cent</h1>
 </div>
 
-<div class="input-container">
-  <div class="input-fields">
-    <mat-form-field appearance="fill">
-      <input matInput placeholder="Image Name" [(ngModel)]="imageName">
-    </mat-form-field>
-  
-    <mat-form-field appearance="fill">
-      <input matInput placeholder="Image Tag" [(ngModel)]="imageTag">
-    </mat-form-field>  
-  </div>  
-<button mat-raised-button color="primary" (click)="submitForm()" class="submit-button">Submit</button>
+<!-- two buttons to toggle between two components -->
+<div id="toggler" class="input-container">
+  <button mat-raised-button color="primary" (click)="toggleForm(CONTAINERS)">Containers</button>
+  <button mat-raised-button color="primary" (click)="toggleForm(DEPENDENCIES)">Dependencies</button>
+</div>
+
+<div id="forms" class="input-container">
+  <div class="input-fields" style="margin: auto;">
+    <!-- if formType is 'containers' show app-containers-form, else show app-dependencies-form -->
+    <ng-container *ngIf="formType == 'containers' then containers; else dependencies">
+    </ng-container>
+
+    <ng-template #containers>
+      <app-containers-form [events]="eventsSubject.asObservable()"></app-containers-form>
+    </ng-template>
+    <ng-template #dependencies>
+      <app-dependencies-form [events]="eventsSubject.asObservable()"></app-dependencies-form>
+    </ng-template>
+  </div>
+  <button mat-raised-button color="primary" (click)="submitForm()" class="submit-button">Submit</button>
 </div>
 
 <div class="image-container">
   <img src="assets/logo.jpeg" alt="Logo">
-</div>
-
-<div *ngIf="imageInfo">
-  <h2 id="report-header">CVE Report:</h2>
-  <app-results-table-component [results]="imageInfoResults"></app-results-table-component>
 </div>

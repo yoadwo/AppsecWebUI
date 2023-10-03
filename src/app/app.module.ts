@@ -7,19 +7,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
-
-
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ResultsTableComponentComponent } from './components/results-table-component/results-table-component.component';
+import { ContainersFormComponent } from './components/containers-form/containers-form.component';
+import { DependenciesFormComponent } from './components/dependencies-form/dependencies-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResultsTableComponentComponent
+    ResultsTableComponentComponent,
+    ContainersFormComponent,
+    DependenciesFormComponent
   ],
   imports: [
     AppRoutingModule,
@@ -30,6 +33,7 @@ import { ResultsTableComponentComponent } from './components/results-table-compo
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSelectModule,
     MatTableModule
 
   ],

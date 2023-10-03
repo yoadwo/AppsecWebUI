@@ -9,10 +9,6 @@
     font-family: 'Sedgwick Ave', cursive;
 }
 
-#report-header {
-    text-align: center;
-}
-
 .input-container {
     display: flex;
     flex-wrap: wrap;
@@ -20,6 +16,15 @@
     /* align-items: center; */
     align-items: flex-start;
     margin-bottom: 20px;
+}
+
+#toggler {
+    
+}
+
+#forms {
+    flex-direction: column;
+    align-content: center;
 }
 
 .input-fields {

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { DockerHubQueryResult, Result } from './models/dockerhub';
+import { Subject } from 'rxjs';
+
+import { containersForm, dependenciesForm } from './consts/formTypeNames';
 
 @Component({
   selector: 'app-root',
@@ -8,28 +10,22 @@ import { DockerHubQueryResult, Result } from './models/dockerhub';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'appsec-web-ui';
-  imageName: string;
-  imageTag: string;
-  imageInfo?: DockerHubQueryResult
-  imageInfoResults?: Result[];
+  title = 'appsec-web-ui';  
+  formType: string;
+  eventsSubject: Subject<string> = new Subject<string>();
+  readonly CONTAINERS = containersForm
+  readonly DEPENDENCIES = dependenciesForm;
 
-  constructor(private http: HttpClient){
-    this.imageName = '';
-    this.imageTag = '';
-    this.imageInfo = undefined;
-    this.imageInfoResults = undefined;
+
+  constructor(){
+    this.formType = this.CONTAINERS;
   }
 
-  async submitForm() {
-    // Make a request to your server-side
-    const url = `https://wneyc5jhak.execute-api.us-east-1.amazonaws.com/dockerImagesCves?imageName=${this.imageName}&imageTag=${this.imageTag}`; // Replace with your server-side URL
-        
+  submitForm() {
+    this.eventsSubject.next(this.formType);
+  }
 
-    this.http.get<DockerHubQueryResult>(url).subscribe(resp => {
-      console.log(resp);
-      this.imageInfo = resp;
-      this.imageInfoResults = resp.results;
-    })
+  toggleForm(type: string) {
+    this.formType = type;
   }
 }
