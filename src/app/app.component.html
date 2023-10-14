@@ -6,19 +6,19 @@
 <div id="toggler" class="input-container">
   <button mat-raised-button color="primary" (click)="toggleForm(CONTAINERS)">Containers</button>
   <button mat-raised-button color="primary" (click)="toggleForm(DEPENDENCIES)">Dependencies</button>
+  <button mat-raised-button color="primary" (click)="toggleForm(MALICIOUS)">Malicious</button>
 </div>
 
 <div id="forms" class="input-container">
   <div class="input-fields" style="margin: auto;">
-    <!-- if formType is 'containers' show app-containers-form, else show app-dependencies-form -->
-    <ng-container *ngIf="formType == 'containers' then containers; else dependencies">
-    </ng-container>
-
-    <ng-template #containers>
+    <ng-template [ngIf]="formType == 'containers'">
       <app-containers-form [events]="eventsSubject.asObservable()"></app-containers-form>
     </ng-template>
-    <ng-template #dependencies>
+    <ng-template [ngIf]="formType == 'dependencies'">
       <app-dependencies-form [events]="eventsSubject.asObservable()"></app-dependencies-form>
+    </ng-template>
+    <ng-template [ngIf]="formType == 'malicous'">
+      <app-malicious-form [events]="eventsSubject.asObservable()"></app-malicious-form>
     </ng-template>
   </div>
   <button mat-raised-button color="primary" (click)="submitForm()" class="submit-button">Submit</button>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DockerHubQueryResult, Result } from './models/dockerhub';
 import { Subject } from 'rxjs';
 
-import { containersForm, dependenciesForm } from './consts/formTypeNames';
+import { containersForm, dependenciesForm, maliciousForm } from './consts/formTypeNames';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,7 @@ export class AppComponent {
   eventsSubject: Subject<string> = new Subject<string>();
   readonly CONTAINERS = containersForm
   readonly DEPENDENCIES = dependenciesForm;
+  readonly MALICIOUS = maliciousForm;
 
 
   constructor(){

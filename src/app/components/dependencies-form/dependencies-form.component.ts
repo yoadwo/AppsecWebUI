@@ -18,7 +18,7 @@ export class DependenciesFormComponent implements OnInit, OnDestroy  {
   eventsSubscription?: Subscription;
 
   repos: string[] = [
-    'Nuget', 'npm', 'Maven', 'PyPi'
+    'Nuget', 'npm', 'Maven', 'PyPi', 'Go', 'Linux',
   ];
 
   constructor(private http: HttpClient) {
