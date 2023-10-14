@@ -26,12 +26,12 @@ export class MaliciousFormComponent implements OnInit, OnDestroy  {
     this.eventsSubscription = this.events?.subscribe((type: string) => {
       if (type === maliciousForm) {
         //Make a request to your server-side
-        const url = `https://wneyc5jhak.execute-api.us-east-1.amazonaws.com/dependencyMalicious?packageName=${this.packageName}&packageVersion=${this.packageVersion}&repo=${this.selectedRepo}`;
+        const url = `https://wneyc5jhak.execute-api.us-east-1.amazonaws.com/dependencyMalicious?packageName=${this.packageName}&packageVersion=${this.packageVersion}`;
 
-        // this.http.get<OsvDevQueryResult>(url).subscribe(resp => {
-        //   console.log(resp);
-        //   this.dependenciesResults = resp;
-        // })
+        this.http.get<any>(url).subscribe(resp => {
+          console.log(resp);
+          
+        })
       }
     });
   }

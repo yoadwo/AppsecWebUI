@@ -11,13 +11,13 @@
 
 <div id="forms" class="input-container">
   <div class="input-fields" style="margin: auto;">
-    <ng-template [ngIf]="formType == 'containers'">
+    <ng-template [ngIf]="formType == CONTAINERS">
       <app-containers-form [events]="eventsSubject.asObservable()"></app-containers-form>
     </ng-template>
-    <ng-template [ngIf]="formType == 'dependencies'">
+    <ng-template [ngIf]="formType == DEPENDENCIES">
       <app-dependencies-form [events]="eventsSubject.asObservable()"></app-dependencies-form>
     </ng-template>
-    <ng-template [ngIf]="formType == 'malicous'">
+    <ng-template [ngIf]="formType == MALICIOUS">
       <app-malicious-form [events]="eventsSubject.asObservable()"></app-malicious-form>
     </ng-template>
   </div>

@@ -1,3 +1,3 @@
 export const containersForm = "containers";
 export const dependenciesForm = "dependencies";
-export const maliciousForm = "malicous";
+export const maliciousForm = "malicious";
