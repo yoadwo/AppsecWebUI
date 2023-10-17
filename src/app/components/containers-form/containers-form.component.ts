@@ -22,6 +22,7 @@ export class ContainersFormComponent implements OnInit, OnDestroy {
   constructor(private http: HttpClient) {
     this.imageName = '';
     this.imageTag = '';
+    this.imageInfoResults = undefined;
   }
 
   ngOnInit() {
@@ -30,14 +31,32 @@ export class ContainersFormComponent implements OnInit, OnDestroy {
         //Make a request to your server-side
         const url = `https://wneyc5jhak.execute-api.us-east-1.amazonaws.com/dockerImagesCves?imageName=${this.imageName}&imageTag=${this.imageTag}`;
 
-        this.http.get<DockerHubQueryResult>(url).subscribe(resp => {
-          console.log(resp);
-          this.imageInfo = resp;
-          this.imageInfoResults = resp.results;
-        })
-      }
+        // this.http.get<DockerHubQueryResult>(url).subscribe(resp => {
+        //   console.log(resp);
+        //   this.imageInfo = resp;
+        //   this.imageInfoResults = resp.results;
+        // })
 
-    });
+        this.http.get<DockerHubQueryResult>(url).subscribe(
+          {
+            next: resp => {
+              console.log(resp);
+              this.imageInfo = resp;
+              this.imageInfoResults = resp.results;
+            },
+            error: e => {
+              console.error(e);
+              this.imageInfo = {
+                name: this.imageName,
+                version: this.imageTag,
+                results: []
+              }
+              this.imageInfoResults = [];
+            }
+          }
+        )
+      }
+    })
   }
 
   ngOnDestroy() {

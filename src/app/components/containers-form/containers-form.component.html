@@ -6,6 +6,9 @@
     <input matInput placeholder="Image Tag" [(ngModel)]="imageTag">
 </mat-form-field>
 
-<div *ngIf="imageInfo">
+<div *ngIf="imageInfoResults && imageInfoResults.length > 0">
     <app-results-table-component [results]="imageInfoResults"></app-results-table-component>
+</div>
+<div *ngIf="imageInfoResults && imageInfoResults.length == 0">
+    <p>No results or search error</p>
 </div>

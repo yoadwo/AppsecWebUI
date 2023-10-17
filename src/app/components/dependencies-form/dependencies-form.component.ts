@@ -25,6 +25,7 @@ export class DependenciesFormComponent implements OnInit, OnDestroy  {
     this.packageName = '';
     this.packageVersion = '';
     this.selectedRepo = '';
+    this.dependenciesResults = undefined;
    }
 
   ngOnInit(){
