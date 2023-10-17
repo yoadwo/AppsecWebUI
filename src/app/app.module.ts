@@ -18,6 +18,7 @@ import { DependenciesResultsTableComponentComponent } from './components/depende
 import { ContainersFormComponent } from './components/containers-form/containers-form.component';
 import { DependenciesFormComponent } from './components/dependencies-form/dependencies-form.component';
 import { MaliciousFormComponent } from './components/malicious-form/malicious-form.component';
+import { MaliciousResultsTableComponentComponent } from './components/malicious-results-table-component/malicious-results-table-component.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MaliciousFormComponent } from './components/malicious-form/malicious-fo
     DependenciesResultsTableComponentComponent,
     ContainersFormComponent,
     DependenciesFormComponent,
-    MaliciousFormComponent
+    MaliciousFormComponent,
+    MaliciousResultsTableComponentComponent
   ],
   imports: [
     AppRoutingModule,

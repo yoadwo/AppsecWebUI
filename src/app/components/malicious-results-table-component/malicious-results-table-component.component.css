@@ -1,0 +1,41 @@
+.severity-critical {
+    background-color: purple;
+    color: white;
+  }
+  
+  .severity-high {
+    background-color: red;
+    color: white;
+  }
+  
+  .severity-medium {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .severity-low {
+    background-color: green;
+    color: white;
+  }
+
+  .severity-grey {
+    background-color: grey;
+    color: white;
+  }
+  
+  .severity-unknown {
+    background-color: gray;
+    color: white;
+  }
+
+  .severity-buttons button {
+    margin: 5px; /* Adjust the value to set the desired gap */
+    flex-basis: 50%; /* Set the width to 50% to fit two buttons per row */
+  }
+
+  .table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}

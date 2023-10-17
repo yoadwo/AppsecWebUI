@@ -1,0 +1,31 @@
+<div *ngIf="results" class="table-container">
+    <table mat-table [dataSource]="results">
+        <!-- Severity Column -->
+        <ng-container matColumnDef="severity">
+            <th mat-header-cell *matHeaderCellDef>Severity</th>
+            <td mat-cell *matCellDef="let result">
+              <div class="severity-buttons">
+                  <button mat-button              
+                    [ngClass]="getSeverityClass(result.severity)"
+                  >
+                    {{ result.severity }}
+                  </button>
+                </div>
+            </td>
+          </ng-container>
+
+        <!-- Link Column -->
+        <ng-container matColumnDef="link">
+            <th mat-header-cell *matHeaderCellDef>Link</th>
+            <td mat-cell *matCellDef="let result">
+                <a mat-flat-button [href]="result.link" target="_blank">
+                    🔗
+                </a>
+            </td>
+        </ng-container>
+
+        <!-- Table Rows -->
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let result; columns: columnsToDisplay"></tr>
+    </table>
+</div>

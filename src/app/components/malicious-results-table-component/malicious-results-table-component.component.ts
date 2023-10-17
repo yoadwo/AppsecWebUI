@@ -1,18 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dependencies-results-table-component',
-  templateUrl: './dependencies-results-table-component.component.html',
-  styleUrls: ['./dependencies-results-table-component.component.css']
+  selector: 'app-malicious-results-table-component',
+  templateUrl: './malicious-results-table-component.component.html',
+  styleUrls: ['./malicious-results-table-component.component.css']
 })
-export class DependenciesResultsTableComponentComponent implements OnInit {
+export class MaliciousResultsTableComponentComponent implements OnInit {
   @Input() results?: any[]; // Assuming the results are passed as an input to the component
   
-  columnsToDisplay: string[] = ['summary', 'ghSeverity'];
+  columnsToDisplay: string[] = ['severity', 'link'];
 
-  constructor() { 
-    this.results = undefined;
-  }
+  constructor() { }
 
   ngOnInit(): void {
     console.log('ng on init', this.results);

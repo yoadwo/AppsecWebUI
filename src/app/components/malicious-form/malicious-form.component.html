@@ -2,11 +2,11 @@
     <input matInput placeholder="Package Name" [(ngModel)]="packageName">
 </mat-form-field>
 
-<mat-form-field appearance="fill">
-    <input matInput placeholder="Package Version" [(ngModel)]="packageVersion">
-</mat-form-field>
-
 <!-- <mat-form-field appearance="fill">
+    <input matInput placeholder="Package Version" [(ngModel)]="packageVersion">
+</mat-form-field> -->
+
+ <mat-form-field appearance="fill">
     <mat-label>Repo Name</mat-label>
     <mat-select [(value)]="selectedRepo">
         <mat-option *ngFor="let repo of repos" [value]="repo">
@@ -15,6 +15,9 @@
     </mat-select>
 </mat-form-field>
 
-<div *ngIf="dependenciesResults">
-    <app-dependencies-results-table-component [results]="dependenciesResults.vulns"></app-dependencies-results-table-component>
-</div> -->
+<div *ngIf="dependenciesResults && dependenciesResults.length > 0">
+    <app-malicious-results-table-component [results]="dependenciesResults"></app-malicious-results-table-component>
+</div>
+<div *ngIf="dependenciesResults && dependenciesResults.length == 0">
+    <p>Search did not return any results</p>
+</div>
