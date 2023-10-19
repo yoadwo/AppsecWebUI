@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DependenciesResultsTableComponentComponent implements OnInit {
   @Input() results?: any[]; // Assuming the results are passed as an input to the component
   
-  columnsToDisplay: string[] = ['summary', 'ghSeverity'];
+  columnsToDisplay: string[] = ['id', 'summary', 'severity'];
 
   constructor() { 
     this.results = undefined;
@@ -24,7 +24,9 @@ export class DependenciesResultsTableComponentComponent implements OnInit {
         return 'severity-critical';
       case 'high':
         return 'severity-high';
-      case 'medium' || 'moderate':
+      case 'medium':
+        return 'severity-medium';
+      case 'moderate':
         return 'severity-medium';
       case 'low':
         return 'severity-low';

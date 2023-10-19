@@ -1,20 +1,26 @@
 <div *ngIf="results" class="table-container">
 <table mat-table [dataSource]="results">
-    <!-- Summary Column -->
+  <!-- id Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let result">{{ result.id }}</td>
+  </ng-container>
+
+  <!-- Summary Column -->
     <ng-container matColumnDef="summary">
       <th mat-header-cell *matHeaderCellDef>Description</th>
       <td mat-cell *matCellDef="let result">{{ result.summary }}</td>
     </ng-container>
   
     <!-- Severities Column -->
-    <ng-container matColumnDef="ghSeverity">
-      <th mat-header-cell *matHeaderCellDef>GitHub Advisory Severities</th>
+    <ng-container matColumnDef="severity">
+      <th mat-header-cell *matHeaderCellDef>Severities</th>
       <td mat-cell *matCellDef="let result">
         <div class="severity-buttons">
             <button mat-button              
-              [ngClass]="getSeverityClass(result.ghSeverity)"
+              [ngClass]="getSeverityClass(result.severity)"
             >
-              {{ result.ghSeverity }}
+              {{ result.severity }}
             </button>
           </div>
       </td>

@@ -3,6 +3,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { dependenciesForm } from 'src/app/consts/formTypeNames';
 import { OsvDevQueryResult } from 'src/app/models/osv.dev';
+import { Response } from 'src/app/models/response';
 
 @Component({
   selector: 'app-dependencies-form',
@@ -14,7 +15,7 @@ export class DependenciesFormComponent implements OnInit, OnDestroy  {
   packageName: string;
   packageVersion: string;
   selectedRepo: string;
-  dependenciesResults?: OsvDevQueryResult;
+  dependenciesResults?: OsvDevQueryResult[];
   eventsSubscription?: Subscription;
 
   repos: string[] = [
@@ -34,9 +35,9 @@ export class DependenciesFormComponent implements OnInit, OnDestroy  {
         //Make a request to your server-side
         const url = `https://wneyc5jhak.execute-api.us-east-1.amazonaws.com/dependencyCves?packageName=${this.packageName}&packageVersion=${this.packageVersion}&repo=${this.selectedRepo}`;
 
-        this.http.get<OsvDevQueryResult>(url).subscribe(resp => {
+        this.http.get<Response>(url).subscribe(resp => {
           console.log(resp);
-          this.dependenciesResults = resp;
+          this.dependenciesResults = resp.data;
         })
       }
     });

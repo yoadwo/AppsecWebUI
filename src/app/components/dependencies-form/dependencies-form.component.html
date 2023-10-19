@@ -15,9 +15,9 @@
     </mat-select>
 </mat-form-field>
 
-<div *ngIf="dependenciesResults && dependenciesResults.vulns">
-    <app-dependencies-results-table-component [results]="dependenciesResults.vulns"></app-dependencies-results-table-component>
+<div *ngIf="dependenciesResults && dependenciesResults.length > 0">
+    <app-dependencies-results-table-component [results]="dependenciesResults"></app-dependencies-results-table-component>
 </div>
-<div *ngIf="dependenciesResults && dependenciesResults.vulns == undefined">
+<div *ngIf="dependenciesResults && dependenciesResults.length == 0">
     <p>Search did not return any results</p>
 </div>
